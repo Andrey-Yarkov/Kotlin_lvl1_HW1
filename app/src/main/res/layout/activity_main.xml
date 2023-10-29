@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/button_for_addition"
-        android:layout_width="wrap_content"
-        android:layout_height="60sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#00FFFFFF"
         android:text="Нажми на меня"
@@ -18,13 +18,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:strokeColor="#BCBCFF"
         app:strokeWidth="4dp" />
 
     <Button
         android:id="@+id/button_for_deletion"
-        android:layout_width="wrap_content"
-        android:layout_height="60sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#00FFFFFF"
         android:text="Не жми на меня"
@@ -33,6 +34,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5"
         app:strokeColor="#FFBCBC"
         app:strokeWidth="4dp" />
 
