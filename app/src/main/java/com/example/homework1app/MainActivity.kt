@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-val rectangles = mutableListOf<Rectangle>()
-
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) { // called every time the activity is created
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main) // which content to display
 
+        // Define number of rectangles per row in case of different orientation
         var rectanglesPerRow : Int
         val orientation = resources.configuration.orientation
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
@@ -27,12 +26,14 @@ class MainActivity : AppCompatActivity() {
             rectanglesPerRow = verticalLayoutItemsNum
         }
 
-        val recyclerView : RecyclerView = findViewById(R.id.rv_rectangles_main) // main view
-        val rvAdapter = RvAdapter(rectangles) // for creating rectangles
+        // Recyclerview object for rectangles display in grid layout
+        val recyclerView : RecyclerView = findViewById(R.id.rv_rectangles_main)
+        val rvAdapter = RvAdapter(rectangles) // adapter for creating view objects from xml layout
         recyclerView.adapter = rvAdapter
-        recyclerView.layoutManager = GridLayoutManager(this, rectanglesPerRow) // items layout
+        recyclerView.layoutManager = GridLayoutManager(this, rectanglesPerRow)
 
-        val buttonForAddition : Button = findViewById(R.id.button_for_addition) // button for addition
+        // Button for rectangles addition
+        val buttonForAddition : Button = findViewById(R.id.button_for_addition)
         buttonForAddition.setOnClickListener {
             val text = (rvAdapter.itemCount + 1).toString()
             var color : Int
@@ -48,13 +49,15 @@ class MainActivity : AppCompatActivity() {
             rvAdapter.addRectangle(rectangle)
         }
 
-        val buttonForDeletion : Button = findViewById(R.id.button_for_deletion) // button fo deletion
+        // Button for rectangles deletion
+        val buttonForDeletion : Button = findViewById(R.id.button_for_deletion)
         buttonForDeletion.setOnClickListener {
             rvAdapter.deleteLastRectangle()
         }
     }
 
     companion object {
+        val rectangles = mutableListOf<Rectangle>()
         val oddColor = R.color.light_red
         val evenColor = R.color.light_blue
         const val horizontalLayoutItemsNum = 4

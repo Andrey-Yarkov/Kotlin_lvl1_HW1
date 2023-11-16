@@ -12,9 +12,11 @@ class LocalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_local)
 
+        // Get values from intent by keys
         val textLabel = intent.getStringExtra(textKey)
         val textColor = intent.getIntExtra(colorKey, 0)
 
+        // Show view with received parameters
         val textView : TextView = findViewById(R.id.local_rectangle)
         textView.text = textLabel
         textView.setBackgroundColor(textColor)
